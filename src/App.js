@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import MemList from "./components/MemList";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
-}));
+});
 
 export default function App() {
   const classes = useStyles();

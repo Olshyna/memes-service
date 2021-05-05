@@ -11,26 +11,19 @@ import ThumbDownRoundedIcon from "@material-ui/icons/ThumbDownRounded";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "100%",
+    maxWidth: 560,
     marginBottom: "20px",
-  },
-  media: {
-    height: 540,
   },
 });
 
-export default function Mem() {
+const Mem = ({ title, img }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="hmmmm" subheader="September 14, 2016" />
+      <CardHeader title={title} subheader="September 14, 2016" />
       <Divider />
-      <CardMedia
-        className={classes.media}
-        image="https://i.imgflip.com/57bo8b.jpg"
-        title="hmmmm"
-      />
+      <CardMedia component="img" alt={title} image={img} />
 
       <CardActions>
         <Button size="small" color="primary">
@@ -42,4 +35,6 @@ export default function Mem() {
       </CardActions>
     </Card>
   );
-}
+};
+
+export default Mem;
