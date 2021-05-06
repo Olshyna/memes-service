@@ -1,5 +1,5 @@
-import { mems } from "./states";
+import { memes } from "./states";
 
-export let reducer = (state = mems) => {
+export let reducer = (state = memes) => {
   return state;
 };

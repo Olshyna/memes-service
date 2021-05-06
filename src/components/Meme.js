@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Mem = ({ title, img }) => {
+const Meme = ({ title, img }) => {
   const classes = useStyles();
 
   return (
@@ -37,4 +37,4 @@ const Mem = ({ title, img }) => {
   );
 };
 
-export default Mem;
+export default Meme;

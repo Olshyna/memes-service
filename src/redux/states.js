@@ -1,4 +1,4 @@
-export let mems = [
+export let memes = [
   {
     id: 1,
     title: "hmmmmm",
