@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -7,15 +8,6 @@ import { ThemeProvider } from "@material-ui/styles";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import MemeList from "./components/MemeList";
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-  container: {
-    marginTop: 64,
-  },
-});
 
 const theme = createMuiTheme({
   palette: {
@@ -29,12 +21,22 @@ const theme = createMuiTheme({
   },
 });
 
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.primary.light,
+  },
+  container: {
+    marginTop: 64,
+  },
+});
+
 export default function App() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <div className={classes.root}>
         <Header />
         <main>
           <Grid className={classes.container} container justify="center">
@@ -47,7 +49,7 @@ export default function App() {
             </Grid>
           </Grid>
         </main>
-      </ThemeProvider>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
