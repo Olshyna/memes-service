@@ -1,4 +1,5 @@
 import "./App.css";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -35,21 +36,23 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <Header />
-        <main>
-          <Grid className={classes.container} container justify="center">
-            <Grid item md={2}>
-              <Navigation />
-            </Grid>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <Header />
+          <main>
+            <Grid className={classes.container} container justify="center">
+              <Grid item md={2}>
+                <Navigation />
+              </Grid>
 
-            <Grid item xs={12} md={8} lg={6}>
-              <MemeList />
+              <Grid item xs={12} md={8} lg={6}>
+                <MemeList />
+              </Grid>
             </Grid>
-          </Grid>
-        </main>
-      </div>
-    </ThemeProvider>
+          </main>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
