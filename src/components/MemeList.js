@@ -26,7 +26,9 @@ function ScrollToTopOnMount() {
 
 const MemeList = () => {
   const classes = useStyles();
-  const memes = useSelector((state) => state);
+
+  const hot = useSelector((store) => store.memes.hot);
+  const regular = useSelector((store) => store.memes.regular);
 
   const memeElement = (array) =>
     array.map((meme) => <Meme key={meme.id} {...meme} />);
@@ -40,13 +42,9 @@ const MemeList = () => {
 
   return (
     <Container className={classes.root}>
-      <Route
-        path="/"
-        exact
-        render={() => listElements([...memes.hot, ...memes.regular])}
-      />
-      <Route path="/hot" render={() => listElements(memes.hot)} />
-      <Route path="/regular" render={() => listElements(memes.regular)} />
+      <Route path="/" exact render={() => listElements([...hot, ...regular])} />
+      <Route path="/hot" render={() => listElements(hot)} />
+      <Route path="/regular" render={() => listElements(regular)} />
     </Container>
   );
 };

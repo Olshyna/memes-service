@@ -1,4 +1,4 @@
-export let memes = {
+export const memes = {
   hot: [
     {
       id: 1,

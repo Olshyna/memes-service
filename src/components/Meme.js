@@ -1,11 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addUpVote, addDownVote } from "../redux/actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Divider from "@material-ui/core/Divider";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/Button";
 import ThumbUpRoundedIcon from "@material-ui/icons/ThumbUpRounded";
 import ThumbDownRoundedIcon from "@material-ui/icons/ThumbDownRounded";
 
@@ -16,7 +18,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Meme = ({ title, img }) => {
+const Meme = ({ title, img, upvotes, downvotes, id }) => {
+  const dispatch = useDispatch();
+
   const classes = useStyles();
 
   return (
@@ -26,12 +30,24 @@ const Meme = ({ title, img }) => {
       <CardMedia component="img" alt={title} image={img} />
 
       <CardActions>
-        <Button size="small" color="primary">
+        <IconButton
+          size="small"
+          color="primary"
+          onClick={() => dispatch(addUpVote({ upvotes, id, type: "upvotes" }))}
+        >
           <ThumbUpRoundedIcon />
-        </Button>
-        <Button size="small" color="primary">
+        </IconButton>
+        <p>{upvotes}</p>
+        <IconButton
+          size="small"
+          color="secondary"
+          onClick={() =>
+            dispatch(addDownVote({ downvotes, id, type: "downvotes" }))
+          }
+        >
           <ThumbDownRoundedIcon />
-        </Button>
+        </IconButton>
+        <p>{downvotes}</p>
       </CardActions>
     </Card>
   );
