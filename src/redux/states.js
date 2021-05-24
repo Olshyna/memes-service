@@ -3,6 +3,7 @@ export const memes = {
     {
       id: 1,
       title: "hmmmmm",
+      author: "BeHapp",
       upvotes: 6,
       downvotes: 0,
       img: "https://i.imgflip.com/57bo8b.jpg",
@@ -10,6 +11,7 @@ export const memes = {
     {
       id: 4,
       title: "everyone says who's the impostor but never how's the impostor",
+      author: "BeHapp",
       upvotes: 10,
       downvotes: 0,
       img: "https://i.imgflip.com/57yact.jpg",
@@ -19,6 +21,7 @@ export const memes = {
     {
       id: 2,
       title: "Idiots be like",
+      author: "BeHapp",
       upvotes: 1,
       downvotes: 2,
       img: "https://i.imgflip.com/581ncw.jpg",
@@ -26,6 +29,7 @@ export const memes = {
     {
       id: 3,
       title: "Ha ha ha! What?",
+      author: "BeHapp",
       upvotes: 3,
       downvotes: 5,
       img: "https://i.imgflip.com/57y4vq.jpg",

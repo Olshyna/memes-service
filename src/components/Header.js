@@ -2,26 +2,27 @@ import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   title: {
-    marginLeft: "10%",
+    marginLeft: "5%",
+    color: theme.palette.text.light,
   },
-});
+  toolBar: {
+    [theme.breakpoints.only("xs")]: {
+      minHeight: 48,
+    },
+  },
+}));
 
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position="fixed">
-      <Toolbar>
-        <Typography className={classes.title} variant="h6" noWrap>
-          MemSerwis
+    <AppBar position="sticky">
+      <Toolbar className={classes.toolBar}>
+        <Typography className={classes.title} variant="h4">
+          MEME'S SERVICE
         </Typography>
-        <Button component={Link} to="/" variant="contained">
-          MemSerwis
-        </Button>
       </Toolbar>
     </AppBar>
   );

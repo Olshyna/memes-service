@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,10 +13,22 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: "#f5f0e7",
-      main: "#ec481f",
+      middle: "#ffd96f",
+      main: "#ff5722",
+      dark: "#e64a19",
     },
     secondary: {
-      main: "#1da1f2",
+      main: "#03a9f4",
+    },
+    text: {
+      light: "#ffccbc",
+      main: "#fff",
+    },
+  },
+  typography: {
+    fontFamily: "'Lato', sans-serif",
+    h4: {
+      fontFamily: "Comic Sans MS",
     },
   },
 });
@@ -27,32 +38,31 @@ const useStyles = makeStyles({
     flexGrow: 1,
     backgroundColor: theme.palette.primary.light,
   },
-  container: {
-    marginTop: 64,
-  },
 });
 
 export default function App() {
   const classes = useStyles();
 
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <Header />
-          <main>
-            <Grid className={classes.container} container justify="center">
-              <Grid item md={2}>
-                <Navigation />
-              </Grid>
+    <>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <div className={classes.root} style={{ minHeight: "100vh" }}>
+            <Header />
+            <main>
+              <Grid container justify="center">
+                <Grid item xs={12} md={3}>
+                  <Navigation />
+                </Grid>
 
-              <Grid item xs={12} md={8} lg={6}>
-                <MemeList />
+                <Grid item xs={12} md={8} lg={6}>
+                  <MemeList />
+                </Grid>
               </Grid>
-            </Grid>
-          </main>
-        </div>
-      </ThemeProvider>
-    </Router>
+            </main>
+          </div>
+        </ThemeProvider>
+      </Router>
+    </>
   );
 }

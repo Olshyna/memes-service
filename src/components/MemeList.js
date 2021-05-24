@@ -1,6 +1,6 @@
-import React from "react";
 import { useEffect } from "react";
 import { Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,12 +9,16 @@ import List from "@material-ui/core/List";
 
 import Meme from "./Meme";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: 560,
+    paddingTop: 20,
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 84,
+    },
   },
-});
+}));
 
 function ScrollToTopOnMount() {
   useEffect(() => {
@@ -42,9 +46,11 @@ const MemeList = () => {
 
   return (
     <Container className={classes.root}>
-      <Route path="/" exact render={() => listElements([...hot, ...regular])} />
-      <Route path="/hot" render={() => listElements(hot)} />
+      <Route path="/">
+        <Redirect to="/regular" />
+      </Route>
       <Route path="/regular" render={() => listElements(regular)} />
+      <Route path="/hot" render={() => listElements(hot)} />
     </Container>
   );
 };

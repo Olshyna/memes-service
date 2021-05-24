@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { addUpVote, addDownVote } from "../redux/actions";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,16 +15,18 @@ const useStyles = makeStyles({
     maxWidth: 560,
     marginBottom: "20px",
   },
+  p: {
+    fontSize: 20,
+  },
 });
 
-const Meme = ({ title, img, upvotes, downvotes, id }) => {
+const Meme = ({ title, img, upvotes, downvotes, id, author }) => {
   const dispatch = useDispatch();
-
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardHeader title={title} subheader="September 14, 2016" />
+      <CardHeader title={title} subheader={`by ${author}`} />
       <Divider />
       <CardMedia component="img" alt={title} image={img} />
 
@@ -37,7 +38,7 @@ const Meme = ({ title, img, upvotes, downvotes, id }) => {
         >
           <ThumbUpRoundedIcon />
         </IconButton>
-        <p>{upvotes}</p>
+        <p className={classes.p}>{upvotes}</p>
         <IconButton
           size="small"
           color="secondary"
@@ -47,7 +48,7 @@ const Meme = ({ title, img, upvotes, downvotes, id }) => {
         >
           <ThumbDownRoundedIcon />
         </IconButton>
-        <p>{downvotes}</p>
+        <p className={classes.p}>{downvotes}</p>
       </CardActions>
     </Card>
   );

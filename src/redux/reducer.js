@@ -30,7 +30,6 @@ function transfer(fromArr, toArr, action) {
 
 export const reducer = (prevState = { memes }, action) => {
   const prevHot = [...prevState.memes.hot];
-
   const prevRegular = [...prevState.memes.regular];
 
   switch (action.type) {
