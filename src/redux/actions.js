@@ -1,5 +1,6 @@
 export const ADD_UP_VOTE = "ADD_UP_VOTE";
 export const ADD_DOWN_VOTE = "ADD_DOWN_VOTE";
+export const CHANGE_FAVORITE = "CHANGE_FAVORITE";
 
 export const addUpVote = ({ upvotes, id, type }) => ({
   type: "ADD_UP_VOTE",
@@ -16,5 +17,13 @@ export const addDownVote = ({ downvotes, id, type }) => ({
     downvotes: downvotes + 1,
     id,
     type,
+  },
+});
+
+export const changeFavorite = ({ favorite, id }) => ({
+  type: "CHANGE_FAVORITE",
+  payload: {
+    favorite: !favorite,
+    id,
   },
 });

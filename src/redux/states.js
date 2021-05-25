@@ -6,6 +6,7 @@ export const memes = {
       author: "BeHapp",
       upvotes: 6,
       downvotes: 0,
+      favorite: false,
       img: "https://i.imgflip.com/57bo8b.jpg",
     },
     {
@@ -14,6 +15,7 @@ export const memes = {
       author: "BeHapp",
       upvotes: 10,
       downvotes: 0,
+      favorite: false,
       img: "https://i.imgflip.com/57yact.jpg",
     },
   ],
@@ -24,6 +26,7 @@ export const memes = {
       author: "BeHapp",
       upvotes: 1,
       downvotes: 2,
+      favorite: false,
       img: "https://i.imgflip.com/581ncw.jpg",
     },
     {
@@ -32,6 +35,7 @@ export const memes = {
       author: "BeHapp",
       upvotes: 3,
       downvotes: 5,
+      favorite: false,
       img: "https://i.imgflip.com/57y4vq.jpg",
     },
   ],
