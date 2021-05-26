@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navigation() {
   const classes = useStyles();
   const [isActiveButton, setActiveButton] = useState("regular");
-  const buttons = ["regular", "hot"];
+  const buttons = ["regular", "hot", "favorites"];
 
   const handleClick = (name) => {
     setActiveButton(name);

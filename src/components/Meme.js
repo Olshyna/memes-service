@@ -43,54 +43,49 @@ const Meme = ({ title, img, upvotes, downvotes, id, author, favorite }) => {
   const [isActiveFavorite, setActiveFavorite] = useState(favorite);
 
   return (
-    console.log(isActiveFavorite, id),
-    (
-      <Card className={classes.root}>
-        <CardHeader title={title} subheader={`by ${author}`} />
-        <Divider />
-        <CardMedia component="img" alt={title} image={img} />
+    <Card className={classes.root}>
+      <CardHeader title={title} subheader={`by ${author}`} />
+      <Divider />
+      <CardMedia component="img" alt={title} image={img} />
 
-        <CardActions className={classes.cardActions}>
-          <IconButton
-            aria-label="add up vote"
-            color="primary"
-            onClick={() =>
-              dispatch(addUpVote({ upvotes, id, type: "upvotes" }))
+      <CardActions className={classes.cardActions}>
+        <IconButton
+          aria-label="add up vote"
+          color="primary"
+          onClick={() => dispatch(addUpVote({ upvotes, id, type: "upvotes" }))}
+        >
+          <ThumbUpRoundedIcon />
+          <b className={classes.b}>{upvotes}</b>
+        </IconButton>
+
+        <IconButton
+          aria-label="favorites"
+          onClick={() => {
+            setActiveFavorite(!favorite);
+            dispatch(changeFavorite({ favorite, id }));
+          }}
+        >
+          <FavoriteRoundedIcon
+            className={
+              isActiveFavorite === false
+                ? `${classes.favoriteIcon} ${classes.notActiveFavoriteIcon}`
+                : `${classes.favoriteIcon} ${classes.isActiveFavoriteIcon}`
             }
-          >
-            <ThumbUpRoundedIcon />
-            <b className={classes.b}>{upvotes}</b>
-          </IconButton>
+          />
+        </IconButton>
 
-          <IconButton
-            aria-label="favorites"
-            onClick={() => {
-              setActiveFavorite(!favorite);
-              dispatch(changeFavorite({ favorite, id }));
-            }}
-          >
-            <FavoriteRoundedIcon
-              className={
-                isActiveFavorite === false
-                  ? `${classes.favoriteIcon} ${classes.notActiveFavoriteIcon}`
-                  : `${classes.favoriteIcon} ${classes.isActiveFavoriteIcon}`
-              }
-            />
-          </IconButton>
-
-          <IconButton
-            aria-label="add down vote"
-            color="secondary"
-            onClick={() =>
-              dispatch(addDownVote({ downvotes, id, type: "downvotes" }))
-            }
-          >
-            <ThumbDownRoundedIcon />
-            <b className={classes.b}>{downvotes}</b>
-          </IconButton>
-        </CardActions>
-      </Card>
-    )
+        <IconButton
+          aria-label="add down vote"
+          color="secondary"
+          onClick={() =>
+            dispatch(addDownVote({ downvotes, id, type: "downvotes" }))
+          }
+        >
+          <ThumbDownRoundedIcon />
+          <b className={classes.b}>{downvotes}</b>
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 };
 

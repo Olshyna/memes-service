@@ -31,8 +31,11 @@ function ScrollToTopOnMount() {
 const MemeList = () => {
   const classes = useStyles();
 
-  const hot = useSelector((store) => store.memes.hot);
-  const regular = useSelector((store) => store.memes.regular);
+  const hot = useSelector((state) => state.memes.hot);
+  const regular = useSelector((state) => state.memes.regular);
+  const favorites = useSelector((state) =>
+    [...state.memes.hot, ...state.memes.regular].filter((meme) => meme.favorite)
+  );
 
   const memeElement = (array) =>
     array.map((meme) => <Meme key={meme.id} {...meme} />);
@@ -51,6 +54,7 @@ const MemeList = () => {
       </Route>
       <Route path="/regular" render={() => listElements(regular)} />
       <Route path="/hot" render={() => listElements(hot)} />
+      <Route path="/favorites" render={() => listElements(favorites)} />
     </Container>
   );
 };
