@@ -1,6 +1,7 @@
 import { ADD_UP_VOTE } from "./actions";
 import { ADD_DOWN_VOTE } from "./actions";
 import { CHANGE_FAVORITE } from "./actions";
+import { ADD_MEME } from "./actions";
 import { memes } from "./states";
 
 const newArray = (array, action, value) =>
@@ -55,6 +56,16 @@ export const reducer = (prevState = { memes }, action) => {
     case CHANGE_FAVORITE: {
       const hot = newArray(prevHot, action, "favorite");
       const regular = newArray(prevRegular, action, "favorite");
+
+      return { memes: { hot, regular } };
+    }
+
+    case ADD_MEME: {
+      const id =
+        [...prevState.memes.hot, ...prevState.memes.regular].length + 1;
+      const meme = { id, ...action.payload };
+      const hot = [...prevHot];
+      const regular = [...prevRegular, meme];
 
       return { memes: { hot, regular } };
     }

@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 275,
-    minHeight: 300,
     marginTop: 64,
     marginLeft: "auto",
     marginRight: "auto",
@@ -19,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginTop: 0,
       width: "100%",
-      minHeight: "auto",
       borderRadius: 0,
       position: "fixed",
       top: 64,
@@ -41,9 +39,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginBottom: 25,
+
     [theme.breakpoints.down("sm")]: {
       margin: "auto",
       minWidth: 100,
+    },
+    [theme.breakpoints.up("md")]: {
+      "&:last-child": { marginBottom: 0 },
     },
   },
 
@@ -73,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navigation() {
   const classes = useStyles();
   const [isActiveButton, setActiveButton] = useState("regular");
-  const buttons = ["regular", "hot", "favorites"];
+  const buttons = ["regular", "hot", "favorites", "add_meme"];
 
   const handleClick = (name) => {
     setActiveButton(name);
@@ -93,7 +95,7 @@ export default function Navigation() {
           : `${classes.button} ${classes.notActiveButton}`
       }
     >
-      {name}
+      {name.replace(/_/g, " ")}
     </Button>
   ));
 

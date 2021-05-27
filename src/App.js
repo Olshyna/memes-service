@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-ui/styles";
 
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
-import MemeList from "./components/MemeList";
+import Page from "./components/Page";
 
 const theme = createMuiTheme({
   palette: {
@@ -56,7 +56,7 @@ export default function App() {
                 </Grid>
 
                 <Grid item xs={12} md={8} lg={6}>
-                  <MemeList />
+                  <Page />
                 </Grid>
               </Grid>
             </main>
