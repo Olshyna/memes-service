@@ -6,7 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: "5%",
-    color: theme.palette.text.light,
+    color: theme.palette.primary.light,
   },
   toolBar: {
     [theme.breakpoints.only("xs")]: {

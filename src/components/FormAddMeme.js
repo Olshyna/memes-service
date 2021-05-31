@@ -7,12 +7,14 @@ import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
-import SnackbarContent from "@material-ui/core/SnackbarContent";
+import Snackbar from "@material-ui/core/Snackbar";
 import { Box } from "@material-ui/core";
+import InputLabel from "@material-ui/core/InputLabel";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import { addMeme } from "../redux/actions";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     maxWidth: 560,
     marginTop: 8,
@@ -54,7 +56,7 @@ const FormAddMeme = () => {
 
   const FormField = fields.map(({ nameField, id, helperText }) => (
     <Box key={id}>
-      <label>{nameField}</label>
+      <InputLabel htmlFor={id}>{nameField}</InputLabel>
       <Controller
         name={id}
         control={control}
@@ -80,11 +82,16 @@ const FormAddMeme = () => {
     reset();
   };
 
-  const closeMessage = (
-    <Button color="secondary" size="small" onClick={() => setMessage("")}>
-      lorem ipsum dolorem
-    </Button>
-  );
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setMessage("");
+  };
 
   return (
     <Card className={classes.root}>
@@ -94,21 +101,30 @@ const FormAddMeme = () => {
         {FormField}
         <Box>
           <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            style={{ marginBottom: 20 }}
+          >
+            submit
+          </Button>
+          <Button
             type="reset"
             variant="contained"
             fullWidth
             onClick={() => reset()}
-            style={{ marginBottom: 20 }}
           >
             reset form
-          </Button>
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            submit
           </Button>
         </Box>
       </form>
       {message ? (
-        <SnackbarContent message={message} action={closeMessage} />
+        <Snackbar open autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success">
+            {message}
+          </Alert>
+        </Snackbar>
       ) : null}
     </Card>
   );

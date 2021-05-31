@@ -51,13 +51,9 @@ const useStyles = makeStyles((theme) => ({
 
   notActiveButton: {
     "&:hover": {
-      background: theme.palette.primary.middle,
+      background: theme.palette.primary.dark,
       color: theme.palette.text.main,
-      borderColor: theme.palette.primary.middle,
-      [theme.breakpoints.down("sm")]: {
-        background: theme.palette.primary.dark,
-        borderColor: theme.palette.primary.dark,
-      },
+      borderColor: theme.palette.primary.dark,
     },
   },
 

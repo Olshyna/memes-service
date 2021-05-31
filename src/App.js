@@ -8,21 +8,21 @@ import { ThemeProvider } from "@material-ui/styles";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Page from "./components/Page";
+import WelcomeMessage from "./components/WelcomeMessage";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#f5f0e7",
-      middle: "#ffd96f",
-      main: "#ff5722",
-      dark: "#e64a19",
+      light: "#F5F0E7",
+      middle: "#C8E6C9",
+      main: "#4CAF50",
+      dark: "#388E3C",
     },
     secondary: {
-      main: "#03a9f4",
+      main: "#03A9F4",
     },
     text: {
-      light: "#ffccbc",
-      main: "#fff",
+      main: "#FFF",
     },
   },
   typography: {
@@ -53,6 +53,7 @@ export default function App() {
               <Grid container justify="center">
                 <Grid item xs={12} md={3}>
                   <Navigation />
+                  <WelcomeMessage />
                 </Grid>
 
                 <Grid item xs={12} md={8} lg={6}>

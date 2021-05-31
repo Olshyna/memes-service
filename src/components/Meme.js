@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     fontSize: 30,
   },
   isActiveFavoriteIcon: {
-    color: "#ff0000",
+    color: "#FF2400",
   },
   notActiveFavoriteIcon: {
     color: "#00000042",
