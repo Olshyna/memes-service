@@ -5,7 +5,7 @@
 ---
 
 This project was carried out for the purpose of completing postgraduate studies at the Leon Kozminski Academy in Warsaw in the field of Frontend development with React - application programming (2020/2021)
-(https://github.com/facebook/create-react-app).
+https://github.com/Olshyna/memes-service.git
 
 The task of the application is:
 
@@ -17,13 +17,30 @@ The task of the application is:
 
 ## Installation
 
----
+```bash
+# Clone project
+git clone https://github.com/Olshyna/memes-service.git
 
-- `fork` and `clone` this repository.
-- `cd` into the project root.
-- Run `npm install` to fetch the project dependencies.
-- Run `npm start` to spin up a development server.
+
+# install the packages with npm
+cd memes-service
+npm install
+
+# start the server with hot reload at localhost:3000
+npm start
+# or yarn
+yarn start
+
+```
 
 ### Screenshots
+
+![Screenshot1](screenshots/screenshot-1.jpg)
+
+![Screenshot2](screenshots/screenshot-2.jpg)
+
+![Screenshot3](screenshots/screenshot-3.jpg)
+
+![Screenshot4](screenshots/screenshot-4.jpg)
 
 ---
