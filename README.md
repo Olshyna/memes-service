@@ -7,6 +7,10 @@
 This project was carried out for the purpose of completing postgraduate studies at the Leon Kozminski Academy in Warsaw in the field of Frontend development with React - application programming (2020/2021)
 https://github.com/Olshyna/memes-service.git
 
+***
+github-pages: https://olshyna.github.io/memes-service/
+***
+
 The task of the application is:
 
 - to display memes on two lists 'HOT' and 'REGULAR' depending on the number of ratings (upvote-downvote> 5 => 'HOT', other => 'REGULAR'),
