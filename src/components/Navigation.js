@@ -16,34 +16,15 @@ const useStyles = makeStyles((theme) => ({
     position: "sticky",
     top: 128,
     [theme.breakpoints.down("sm")]: {
-      marginTop: 0,
-      width: "100%",
-      borderRadius: 0,
-      position: "fixed",
-      top: 64,
-      backgroundColor: theme.palette.secondary.main,
-    },
-    [theme.breakpoints.down("xs")]: {
-      top: 48,
+      display: "none",
     },
   },
   wrap: {
     padding: "10%",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "row",
-      justifyContent: "space-around",
-      height: 64,
-      padding: 0,
-      backgroundColor: theme.palette.primary.middle,
-    },
   },
   button: {
     marginBottom: 25,
 
-    [theme.breakpoints.down("sm")]: {
-      margin: "auto",
-      minWidth: 100,
-    },
     [theme.breakpoints.up("md")]: {
       "&:last-child": { marginBottom: 0 },
     },
