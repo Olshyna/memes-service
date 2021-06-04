@@ -45,6 +45,4 @@ yarn start
 
 ![Screenshot3](screenshots/screenshot-3.jpg)
 
-![Screenshot4](screenshots/screenshot-4.jpg)
-
 ---
