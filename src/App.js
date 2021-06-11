@@ -44,26 +44,24 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <>
-      <Router>
-        <ThemeProvider theme={theme}>
-          <div className={classes.root} style={{ minHeight: "100vh" }}>
-            <Header />
-            <main>
-              <Grid container justify="center">
-                <Grid item xs={12} md={3}>
-                  <Navigation />
-                  <WelcomeMessage />
-                </Grid>
-
-                <Grid item xs={12} md={8} lg={6}>
-                  <Page />
-                </Grid>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root} style={{ minHeight: "100vh" }}>
+          <Header />
+          <main>
+            <Grid container justify="center">
+              <Grid item xs={12} md={3}>
+                <Navigation />
+                <WelcomeMessage />
               </Grid>
-            </main>
-          </div>
-        </ThemeProvider>
-      </Router>
-    </>
+
+              <Grid item xs={12} md={8} lg={6}>
+                <Page />
+              </Grid>
+            </Grid>
+          </main>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }

@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,6 +8,7 @@ import Container from "@material-ui/core/Container";
 
 import MemeList from "./MemeList";
 import FormAddMeme from "./FormAddMeme";
+import NoMatch from "./NoMatch";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,13 +31,32 @@ const Page = () => {
 
   return (
     <Container className={classes.root}>
-      <Route path="/">
-        <Redirect to="/regular" />
-      </Route>
-      <Route path="/regular" render={() => <MemeList array={regular} />} />
-      <Route path="/hot" render={() => <MemeList array={hot} />} />
-      <Route path="/favorites" render={() => <MemeList array={favorites} />} />
-      <Route path="/add_meme" render={() => <FormAddMeme />} />
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/regular" />
+        </Route>
+        <Route exact path="/memes-service">
+          <Redirect to="/regular" />
+        </Route>
+        <Route path="/regular">
+          <MemeList array={regular} />
+        </Route>
+
+        <Route path="/hot">
+          <MemeList array={hot} />
+        </Route>
+
+        <Route path="/favorites">
+          <MemeList array={favorites} />
+        </Route>
+
+        <Route path="/add_meme">
+          <FormAddMeme />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
     </Container>
   );
 };

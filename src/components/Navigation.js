@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import { Grid } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,7 +63,7 @@ export default function Navigation() {
       key={name}
       name={name}
       onClick={() => handleClick(name)}
-      component={Link}
+      component={NavLink}
       to={`/${name}`}
       variant="outlined"
       className={

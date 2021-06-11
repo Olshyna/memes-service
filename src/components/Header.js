@@ -31,12 +31,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyledMenu = withStyles({
+const StyledMenu = withStyles((theme) => ({
   paper: {
-    border: "1px solid #d3d4d5",
-    width: "200px",
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+      border: "1px solid #d3d4d5",
+      width: "200px",
+    },
   },
-})((props) => (
+}))((props) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
@@ -77,7 +81,7 @@ const Header = () => {
   };
 
   const MenuItem = buttons.map((name) => (
-    <StyledMenuItem key={name} button="true" component={Link} to={`/${name}`}>
+    <StyledMenuItem key={name} button={true} component={Link} to={`/${name}`}>
       <ListItemText primary={name.toUpperCase().replace(/_/g, " ")} />
     </StyledMenuItem>
   ));

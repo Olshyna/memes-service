@@ -4,7 +4,7 @@ import { CHANGE_FAVORITE } from "./actions";
 import { ADD_MEME } from "./actions";
 import { memes } from "./states";
 
-const newArray = (array, action, value) =>
+const updateMeme = (array, action, value) =>
   array.map((meme) => {
     if (meme.id === action.payload.id) {
       return (meme = {
@@ -15,7 +15,7 @@ const newArray = (array, action, value) =>
     return meme;
   });
 
-function transfer(fromArr, toArr, action) {
+function transferMeme(fromArr, toArr, action) {
   fromArr.map((meme, index) => {
     if (
       (action.payload.type === "upvotes" &&
@@ -36,26 +36,26 @@ export const reducer = (prevState = { memes }, action) => {
 
   switch (action.type) {
     case ADD_UP_VOTE: {
-      const hot = newArray(prevHot, action, "upvotes");
-      const regular = newArray(prevRegular, action, "upvotes");
+      const hot = updateMeme(prevHot, action, "upvotes");
+      const regular = updateMeme(prevRegular, action, "upvotes");
 
-      transfer(regular, hot, action);
+      transferMeme(regular, hot, action);
 
       return { memes: { hot, regular } };
     }
 
     case ADD_DOWN_VOTE: {
-      const hot = newArray(prevHot, action, "downvotes");
-      const regular = newArray(prevRegular, action, "downvotes");
+      const hot = updateMeme(prevHot, action, "downvotes");
+      const regular = updateMeme(prevRegular, action, "downvotes");
 
-      transfer(hot, regular, action);
+      transferMeme(hot, regular, action);
 
       return { memes: { hot, regular } };
     }
 
     case CHANGE_FAVORITE: {
-      const hot = newArray(prevHot, action, "favorite");
-      const regular = newArray(prevRegular, action, "favorite");
+      const hot = updateMeme(prevHot, action, "favorite");
+      const regular = updateMeme(prevRegular, action, "favorite");
 
       return { memes: { hot, regular } };
     }

@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { addUpVote, addDownVote, changeFavorite } from "../redux/actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -40,7 +39,6 @@ const useStyles = makeStyles({
 const Meme = ({ title, img, upvotes, downvotes, id, author, favorite }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const [isActiveFavorite, setActiveFavorite] = useState(favorite);
 
   return (
     <Card className={classes.root}>
@@ -61,13 +59,12 @@ const Meme = ({ title, img, upvotes, downvotes, id, author, favorite }) => {
         <IconButton
           aria-label="favorites"
           onClick={() => {
-            setActiveFavorite(!favorite);
             dispatch(changeFavorite({ favorite, id }));
           }}
         >
           <FavoriteRoundedIcon
             className={
-              isActiveFavorite === false
+              favorite === false
                 ? `${classes.favoriteIcon} ${classes.notActiveFavoriteIcon}`
                 : `${classes.favoriteIcon} ${classes.isActiveFavoriteIcon}`
             }
