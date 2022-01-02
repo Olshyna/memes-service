@@ -11,12 +11,12 @@ export const memes = {
     },
     {
       id: 4,
-      title: "recepta na problemy",
+      title: "pain",
       author: "Brajanusz",
       upvotes: 10,
       downvotes: 3,
       favorite: false,
-      img: "https://lalameme.pl/upload/ogloszenie/464/img_1FM0l1NGWtfYLQ.jpg",
+      img: "https://cdn.memes.com/up/73713841561567839/i/1561834761555.jpg",
     },
     {
       id: 6,
